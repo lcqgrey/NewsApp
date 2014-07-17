@@ -29,7 +29,7 @@ NSString *const kPathIndex = @"selectedIndex";
     
     NewsTableView *currentTable;
     MJRefreshBaseView *currentRefreshView;
-    
+    BOOL islll;
     BOOL isPulDown;
 
     NSMutableArray *dataSourceArray;

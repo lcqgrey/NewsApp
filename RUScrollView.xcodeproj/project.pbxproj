@@ -1,0 +1,831 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C1A4C4419517E9C00505689 /* RUShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1A4C4319517E9C00505689 /* RUShareView.m */; };
+		1C7082981910D4BF0098FF44 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1C70829A1910D4BF0098FF44 /* Localizable.strings */; };
+		1C73A6DB196CE1930059AA5D /* DXLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C73A6D8196CE1930059AA5D /* DXLAlertView.m */; };
+		1C73A6DC196CE1930059AA5D /* DXLActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C73A6DA196CE1930059AA5D /* DXLActionSheetView.m */; };
+		1C7768F2194AD21400B7588B /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1C7768E8194AD21400B7588B /* MJRefresh.bundle */; };
+		1C7768F3194AD21400B7588B /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7768EB194AD21400B7588B /* MJRefreshBaseView.m */; };
+		1C7768F4194AD21400B7588B /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7768ED194AD21400B7588B /* MJRefreshConst.m */; };
+		1C7768F5194AD21400B7588B /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7768EF194AD21400B7588B /* MJRefreshFooterView.m */; };
+		1C7768F6194AD21400B7588B /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7768F1194AD21400B7588B /* MJRefreshHeaderView.m */; };
+		1C8965E11958205A00A784A6 /* AppRequestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8965E01958205A00A784A6 /* AppRequestClient.m */; };
+		1C8965E4195829CF00A784A6 /* RequestParamModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8965E3195829CF00A784A6 /* RequestParamModel.m */; };
+		1C8965E819582F4F00A784A6 /* NetwokView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8965E619582F4F00A784A6 /* NetwokView.m */; };
+		1C8965E919582F4F00A784A6 /* NetworkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C8965E719582F4F00A784A6 /* NetworkView.xib */; };
+		1C8965EC19582F8500A784A6 /* RUUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8965EB19582F8500A784A6 /* RUUtils.m */; };
+		1C8965EF1958386F00A784A6 /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8965EE1958386F00A784A6 /* NewsCell.m */; };
+		1C8965F3195838C000A784A6 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C8965F2195838C000A784A6 /* NewsCell.xib */; };
+		1C9043E4195918BB00D74BEA /* NewsListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9043E3195918BB00D74BEA /* NewsListModel.m */; };
+		1C9043E7195942D400D74BEA /* NewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9043E6195942D400D74BEA /* NewsModel.m */; };
+		1C964325192D920800D74164 /* images.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1C964324192D920800D74164 /* images.bundle */; };
+		1C96432B192D96A400D74164 /* TestTableViewFirstStyleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C96432A192D96A400D74164 /* TestTableViewFirstStyleCell.m */; };
+		1C96432E192D96B500D74164 /* TestTableViewSecondStyleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C96432D192D96B500D74164 /* TestTableViewSecondStyleCell.m */; };
+		1C964332192D973400D74164 /* TestTableViewFirstStyleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C964331192D973400D74164 /* TestTableViewFirstStyleCell.xib */; };
+		1C964334192D973A00D74164 /* TestTableViewSecondStyleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C964333192D973A00D74164 /* TestTableViewSecondStyleCell.xib */; };
+		1C964337192DDE2B00D74164 /* TestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C964336192DDE2B00D74164 /* TestTableViewCell.m */; };
+		1CA7C7B719249DF300BEB997 /* NSDate+DateCalculate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7C7B419249DF300BEB997 /* NSDate+DateCalculate.m */; };
+		1CA7C7C119249ED100BEB997 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7C7BE19249ED100BEB997 /* UIViewExt.m */; };
+		1CA7C7C219249ED100BEB997 /* WXHLGlobalUICommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7C7C019249ED100BEB997 /* WXHLGlobalUICommon.m */; };
+		1CCA07D3190F747500022062 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CCA07D2190F747500022062 /* Foundation.framework */; };
+		1CCA07D5190F747500022062 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CCA07D4190F747500022062 /* CoreGraphics.framework */; };
+		1CCA07D7190F747500022062 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CCA07D6190F747500022062 /* UIKit.framework */; };
+		1CCA07DF190F747500022062 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA07DE190F747500022062 /* main.m */; };
+		1CCA07E3190F747500022062 /* RUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA07E2190F747500022062 /* RUAppDelegate.m */; };
+		1CCA07E5190F747500022062 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CCA07E4190F747500022062 /* Images.xcassets */; };
+		1CCA07EC190F747500022062 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CCA07EB190F747500022062 /* XCTest.framework */; };
+		1CCA07ED190F747500022062 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CCA07D2190F747500022062 /* Foundation.framework */; };
+		1CCA07EE190F747500022062 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CCA07D6190F747500022062 /* UIKit.framework */; };
+		1CCA07F8190F747500022062 /* RUScrollViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA07F7190F747500022062 /* RUScrollViewTests.m */; };
+		1CCA0809190F75C300022062 /* RUScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA0808190F75C300022062 /* RUScrollView.m */; };
+		1CCA080C190F763300022062 /* ViewControllerOrigin.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA080B190F763300022062 /* ViewControllerOrigin.m */; };
+		1CCA0810190F76AB00022062 /* UrlRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA080F190F76AB00022062 /* UrlRequestManager.m */; };
+		1CCA0813190F76E700022062 /* RUButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA0812190F76E700022062 /* RUButton.m */; };
+		1CCA081C190F787C00022062 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA081B190F787C00022062 /* RootViewController.m */; };
+		1CCA081F190F790100022062 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA081E190F790100022062 /* FirstViewController.m */; };
+		1CCA0822190F791200022062 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA0821190F791200022062 /* SecondViewController.m */; };
+		1CCA0825190F792000022062 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA0824190F792000022062 /* ThirdViewController.m */; };
+		1CCA0828190F793100022062 /* ForthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA0827190F793100022062 /* ForthViewController.m */; };
+		1CCA082D190F8C0800022062 /* RUBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA082C190F8C0800022062 /* RUBarButton.m */; };
+		1CCA0830190FAC4800022062 /* RUNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA082F190FAC4800022062 /* RUNavigationViewController.m */; };
+		1CCC70B21959526700347CBE /* NewsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCC70B11959526700347CBE /* NewsTableView.m */; };
+		1CCC70B4195952A300347CBE /* NewsTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CCC70B3195952A300347CBE /* NewsTableView.xib */; };
+		1CD0B640191C79190095F93F /* AppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CD0B63F191C79190095F93F /* AppManager.m */; };
+		1CD0B653191C806F0095F93F /* RUTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CD0B652191C806F0095F93F /* RUTableView.m */; };
+		1CD381261920B9CB00026218 /* RUTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CD381251920B9CB00026218 /* RUTestViewController.m */; };
+		214EF1D119556C77009E7987 /* TestTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 214EF1D019556C77009E7987 /* TestTableView.m */; };
+		214EF1D319556CB9009E7987 /* TestTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 214EF1D219556CB9009E7987 /* TestTableView.xib */; };
+		87381FBDBB7D440986653CDC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C018BA7EE4C4ABBBD522B38 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1CCA07EF190F747500022062 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1CCA07C7190F747500022062 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1CCA07CE190F747500022062;
+			remoteInfo = RUScrollView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1C1A4C4219517E9C00505689 /* RUShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RUShareView.h; sourceTree = "<group>"; };
+		1C1A4C4319517E9C00505689 /* RUShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RUShareView.m; sourceTree = "<group>"; };
+		1C7082991910D4BF0098FF44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1C70829B1910D4C40098FF44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1C70829C1910D4C40098FF44 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		1C70829D1910D4C50098FF44 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1C73A6D7196CE1930059AA5D /* DXLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXLAlertView.h; sourceTree = "<group>"; };
+		1C73A6D8196CE1930059AA5D /* DXLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXLAlertView.m; sourceTree = "<group>"; };
+		1C73A6D9196CE1930059AA5D /* DXLActionSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXLActionSheetView.h; sourceTree = "<group>"; };
+		1C73A6DA196CE1930059AA5D /* DXLActionSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXLActionSheetView.m; sourceTree = "<group>"; };
+		1C7768E8194AD21400B7588B /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
+		1C7768E9194AD21400B7588B /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
+		1C7768EA194AD21400B7588B /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
+		1C7768EB194AD21400B7588B /* MJRefreshBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBaseView.m; sourceTree = "<group>"; };
+		1C7768EC194AD21400B7588B /* MJRefreshConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshConst.h; sourceTree = "<group>"; };
+		1C7768ED194AD21400B7588B /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConst.m; sourceTree = "<group>"; };
+		1C7768EE194AD21400B7588B /* MJRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooterView.h; sourceTree = "<group>"; };
+		1C7768EF194AD21400B7588B /* MJRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooterView.m; sourceTree = "<group>"; };
+		1C7768F0194AD21400B7588B /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeaderView.h; sourceTree = "<group>"; };
+		1C7768F1194AD21400B7588B /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
+		1C8965DF1958205A00A784A6 /* AppRequestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppRequestClient.h; sourceTree = "<group>"; };
+		1C8965E01958205A00A784A6 /* AppRequestClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppRequestClient.m; sourceTree = "<group>"; };
+		1C8965E2195829CF00A784A6 /* RequestParamModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestParamModel.h; sourceTree = "<group>"; };
+		1C8965E3195829CF00A784A6 /* RequestParamModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestParamModel.m; sourceTree = "<group>"; };
+		1C8965E519582F4F00A784A6 /* NetwokView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetwokView.h; sourceTree = "<group>"; };
+		1C8965E619582F4F00A784A6 /* NetwokView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetwokView.m; sourceTree = "<group>"; };
+		1C8965E719582F4F00A784A6 /* NetworkView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NetworkView.xib; sourceTree = "<group>"; };
+		1C8965EA19582F8500A784A6 /* RUUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RUUtils.h; sourceTree = "<group>"; };
+		1C8965EB19582F8500A784A6 /* RUUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RUUtils.m; sourceTree = "<group>"; };
+		1C8965ED1958386F00A784A6 /* NewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCell.h; sourceTree = "<group>"; };
+		1C8965EE1958386F00A784A6 /* NewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCell.m; sourceTree = "<group>"; };
+		1C8965F2195838C000A784A6 /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
+		1C9043E2195918BB00D74BEA /* NewsListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsListModel.h; sourceTree = "<group>"; };
+		1C9043E3195918BB00D74BEA /* NewsListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsListModel.m; sourceTree = "<group>"; };
+		1C9043E5195942D400D74BEA /* NewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsModel.h; sourceTree = "<group>"; };
+		1C9043E6195942D400D74BEA /* NewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsModel.m; sourceTree = "<group>"; };
+		1C964324192D920800D74164 /* images.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = images.bundle; sourceTree = "<group>"; };
+		1C964329192D96A400D74164 /* TestTableViewFirstStyleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTableViewFirstStyleCell.h; sourceTree = "<group>"; };
+		1C96432A192D96A400D74164 /* TestTableViewFirstStyleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTableViewFirstStyleCell.m; sourceTree = "<group>"; };
+		1C96432C192D96B500D74164 /* TestTableViewSecondStyleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTableViewSecondStyleCell.h; sourceTree = "<group>"; };
+		1C96432D192D96B500D74164 /* TestTableViewSecondStyleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTableViewSecondStyleCell.m; sourceTree = "<group>"; };
+		1C964331192D973400D74164 /* TestTableViewFirstStyleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestTableViewFirstStyleCell.xib; sourceTree = "<group>"; };
+		1C964333192D973A00D74164 /* TestTableViewSecondStyleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestTableViewSecondStyleCell.xib; sourceTree = "<group>"; };
+		1C964335192DDE2B00D74164 /* TestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTableViewCell.h; sourceTree = "<group>"; };
+		1C964336192DDE2B00D74164 /* TestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTableViewCell.m; sourceTree = "<group>"; };
+		1CA7C7B319249DF300BEB997 /* NSDate+DateCalculate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DateCalculate.h"; sourceTree = "<group>"; };
+		1CA7C7B419249DF300BEB997 /* NSDate+DateCalculate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DateCalculate.m"; sourceTree = "<group>"; };
+		1CA7C7BD19249ED100BEB997 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
+		1CA7C7BE19249ED100BEB997 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
+		1CA7C7BF19249ED100BEB997 /* WXHLGlobalUICommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXHLGlobalUICommon.h; sourceTree = "<group>"; };
+		1CA7C7C019249ED100BEB997 /* WXHLGlobalUICommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXHLGlobalUICommon.m; sourceTree = "<group>"; };
+		1CCA07CF190F747500022062 /* RUScrollView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RUScrollView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CCA07D2190F747500022062 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1CCA07D4190F747500022062 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1CCA07D6190F747500022062 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1CCA07DA190F747500022062 /* RUScrollView-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RUScrollView-Info.plist"; sourceTree = "<group>"; };
+		1CCA07DE190F747500022062 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1CCA07E0190F747500022062 /* RUScrollView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RUScrollView-Prefix.pch"; sourceTree = "<group>"; };
+		1CCA07E1190F747500022062 /* RUAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RUAppDelegate.h; sourceTree = "<group>"; };
+		1CCA07E2190F747500022062 /* RUAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RUAppDelegate.m; sourceTree = "<group>"; };
+		1CCA07E4190F747500022062 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1CCA07EA190F747500022062 /* RUScrollViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RUScrollViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CCA07EB190F747500022062 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		1CCA07F3190F747500022062 /* RUScrollViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RUScrollViewTests-Info.plist"; sourceTree = "<group>"; };
+		1CCA07F7190F747500022062 /* RUScrollViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RUScrollViewTests.m; sourceTree = "<group>"; };
+		1CCA0807190F75C300022062 /* RUScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RUScrollView.h; sourceTree = "<group>"; };
+		1CCA0808190F75C300022062 /* RUScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RUScrollView.m; sourceTree = "<group>"; };
+		1CCA080A190F763300022062 /* ViewControllerOrigin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerOrigin.h; sourceTree = "<group>"; };
+		1CCA080B190F763300022062 /* ViewControllerOrigin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerOrigin.m; sourceTree = "<group>"; };
+		1CCA080E190F76AB00022062 /* UrlRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlRequestManager.h; sourceTree = "<group>"; };
+		1CCA080F190F76AB00022062 /* UrlRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlRequestManager.m; sourceTree = "<group>"; };
+		1CCA0811190F76E700022062 /* RUButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RUButton.h; sourceTree = "<group>"; };
+		1CCA0812190F76E700022062 /* RUButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RUButton.m; sourceTree = "<group>"; };
+		1CCA081A190F787C00022062 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		1CCA081B190F787C00022062 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		1CCA081D190F790100022062 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		1CCA081E190F790100022062 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		1CCA0820190F791200022062 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		1CCA0821190F791200022062 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		1CCA0823190F792000022062 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		1CCA0824190F792000022062 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		1CCA0826190F793100022062 /* ForthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForthViewController.h; sourceTree = "<group>"; };
+		1CCA0827190F793100022062 /* ForthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForthViewController.m; sourceTree = "<group>"; };
+		1CCA082A190F7AE300022062 /* CommonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonDefine.h; sourceTree = "<group>"; };
+		1CCA082B190F8C0800022062 /* RUBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RUBarButton.h; sourceTree = "<group>"; };
+		1CCA082C190F8C0800022062 /* RUBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RUBarButton.m; sourceTree = "<group>"; };
+		1CCA082E190FAC4800022062 /* RUNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RUNavigationViewController.h; sourceTree = "<group>"; };
+		1CCA082F190FAC4800022062 /* RUNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RUNavigationViewController.m; sourceTree = "<group>"; };
+		1CCC70B01959526700347CBE /* NewsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableView.h; sourceTree = "<group>"; };
+		1CCC70B11959526700347CBE /* NewsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableView.m; sourceTree = "<group>"; };
+		1CCC70B3195952A300347CBE /* NewsTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTableView.xib; sourceTree = "<group>"; };
+		1CD0B63E191C79190095F93F /* AppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppManager.h; sourceTree = "<group>"; };
+		1CD0B63F191C79190095F93F /* AppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppManager.m; sourceTree = "<group>"; };
+		1CD0B651191C806F0095F93F /* RUTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RUTableView.h; sourceTree = "<group>"; };
+		1CD0B652191C806F0095F93F /* RUTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RUTableView.m; sourceTree = "<group>"; };
+		1CD381241920B9CB00026218 /* RUTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RUTestViewController.h; sourceTree = "<group>"; };
+		1CD381251920B9CB00026218 /* RUTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RUTestViewController.m; sourceTree = "<group>"; };
+		214EF1CF19556C77009E7987 /* TestTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTableView.h; sourceTree = "<group>"; };
+		214EF1D019556C77009E7987 /* TestTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTableView.m; sourceTree = "<group>"; };
+		214EF1D219556CB9009E7987 /* TestTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestTableView.xib; sourceTree = "<group>"; };
+		6C018BA7EE4C4ABBBD522B38 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A16649575CE644A896D150AD /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1CCA07CC190F747500022062 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CCA07D5190F747500022062 /* CoreGraphics.framework in Frameworks */,
+				1CCA07D7190F747500022062 /* UIKit.framework in Frameworks */,
+				1CCA07D3190F747500022062 /* Foundation.framework in Frameworks */,
+				87381FBDBB7D440986653CDC /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CCA07E7190F747500022062 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CCA07EC190F747500022062 /* XCTest.framework in Frameworks */,
+				1CCA07EE190F747500022062 /* UIKit.framework in Frameworks */,
+				1CCA07ED190F747500022062 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C7768E7194AD21400B7588B /* MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				1C7768E8194AD21400B7588B /* MJRefresh.bundle */,
+				1C7768E9194AD21400B7588B /* MJRefresh.h */,
+				1C7768EA194AD21400B7588B /* MJRefreshBaseView.h */,
+				1C7768EB194AD21400B7588B /* MJRefreshBaseView.m */,
+				1C7768EC194AD21400B7588B /* MJRefreshConst.h */,
+				1C7768ED194AD21400B7588B /* MJRefreshConst.m */,
+				1C7768EE194AD21400B7588B /* MJRefreshFooterView.h */,
+				1C7768EF194AD21400B7588B /* MJRefreshFooterView.m */,
+				1C7768F0194AD21400B7588B /* MJRefreshHeaderView.h */,
+				1C7768F1194AD21400B7588B /* MJRefreshHeaderView.m */,
+			);
+			path = MJRefresh;
+			sourceTree = "<group>";
+		};
+		1C964323192D920800D74164 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				1C964324192D920800D74164 /* images.bundle */,
+			);
+			name = Resource;
+			path = RUScrollView/Resource;
+			sourceTree = "<group>";
+		};
+		1CA7C7B219249DF300BEB997 /* category */ = {
+			isa = PBXGroup;
+			children = (
+				1CA7C7B319249DF300BEB997 /* NSDate+DateCalculate.h */,
+				1CA7C7B419249DF300BEB997 /* NSDate+DateCalculate.m */,
+			);
+			name = category;
+			path = RUScrollView/category;
+			sourceTree = "<group>";
+		};
+		1CA7C7B919249E0A00BEB997 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1C8965EA19582F8500A784A6 /* RUUtils.h */,
+				1C8965EB19582F8500A784A6 /* RUUtils.m */,
+				1CA7C7BD19249ED100BEB997 /* UIViewExt.h */,
+				1CA7C7BE19249ED100BEB997 /* UIViewExt.m */,
+				1CA7C7BF19249ED100BEB997 /* WXHLGlobalUICommon.h */,
+				1CA7C7C019249ED100BEB997 /* WXHLGlobalUICommon.m */,
+			);
+			name = Utils;
+			path = RUScrollView/Utils;
+			sourceTree = "<group>";
+		};
+		1CCA07C6190F747500022062 = {
+			isa = PBXGroup;
+			children = (
+				1C964323192D920800D74164 /* Resource */,
+				1CA7C7B919249E0A00BEB997 /* Utils */,
+				1CA7C7B219249DF300BEB997 /* category */,
+				1CCA080D190F767300022062 /* others */,
+				1CCA0806190F757200022062 /* views */,
+				1CCA0805190F756D00022062 /* model */,
+				1CCA0804190F756400022062 /* controllers */,
+				1CCA07D8190F747500022062 /* RUScrollView */,
+				1CCA07F1190F747500022062 /* RUScrollViewTests */,
+				1CCA07D1190F747500022062 /* Frameworks */,
+				1CCA07D0190F747500022062 /* Products */,
+				A16649575CE644A896D150AD /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		1CCA07D0190F747500022062 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1CCA07CF190F747500022062 /* RUScrollView.app */,
+				1CCA07EA190F747500022062 /* RUScrollViewTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1CCA07D1190F747500022062 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1CCA07D2190F747500022062 /* Foundation.framework */,
+				1CCA07D4190F747500022062 /* CoreGraphics.framework */,
+				1CCA07D6190F747500022062 /* UIKit.framework */,
+				1CCA07EB190F747500022062 /* XCTest.framework */,
+				6C018BA7EE4C4ABBBD522B38 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1CCA07D8190F747500022062 /* RUScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				1CCA07D9190F747500022062 /* Supporting Files */,
+				1CCA07E1190F747500022062 /* RUAppDelegate.h */,
+				1CCA07E2190F747500022062 /* RUAppDelegate.m */,
+				1C8965DF1958205A00A784A6 /* AppRequestClient.h */,
+				1C8965E01958205A00A784A6 /* AppRequestClient.m */,
+				1CD0B63E191C79190095F93F /* AppManager.h */,
+				1CD0B63F191C79190095F93F /* AppManager.m */,
+				1CCA081A190F787C00022062 /* RootViewController.h */,
+				1CCA081B190F787C00022062 /* RootViewController.m */,
+				1CCA07E4190F747500022062 /* Images.xcassets */,
+				1CCA082A190F7AE300022062 /* CommonDefine.h */,
+			);
+			path = RUScrollView;
+			sourceTree = "<group>";
+		};
+		1CCA07D9190F747500022062 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1CCA07DA190F747500022062 /* RUScrollView-Info.plist */,
+				1CCA07DE190F747500022062 /* main.m */,
+				1CCA07E0190F747500022062 /* RUScrollView-Prefix.pch */,
+				1C70829A1910D4BF0098FF44 /* Localizable.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1CCA07F1190F747500022062 /* RUScrollViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				1CCA07F7190F747500022062 /* RUScrollViewTests.m */,
+				1CCA07F2190F747500022062 /* Supporting Files */,
+			);
+			path = RUScrollViewTests;
+			sourceTree = "<group>";
+		};
+		1CCA07F2190F747500022062 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1CCA07F3190F747500022062 /* RUScrollViewTests-Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1CCA0804190F756400022062 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1CCA080A190F763300022062 /* ViewControllerOrigin.h */,
+				1CCA080B190F763300022062 /* ViewControllerOrigin.m */,
+				1CCA081D190F790100022062 /* FirstViewController.h */,
+				1CCA081E190F790100022062 /* FirstViewController.m */,
+				1CCA0820190F791200022062 /* SecondViewController.h */,
+				1CCA0821190F791200022062 /* SecondViewController.m */,
+				1CCA0823190F792000022062 /* ThirdViewController.h */,
+				1CCA0824190F792000022062 /* ThirdViewController.m */,
+				1CCA0826190F793100022062 /* ForthViewController.h */,
+				1CCA0827190F793100022062 /* ForthViewController.m */,
+				1CCA082E190FAC4800022062 /* RUNavigationViewController.h */,
+				1CCA082F190FAC4800022062 /* RUNavigationViewController.m */,
+				1CD381241920B9CB00026218 /* RUTestViewController.h */,
+				1CD381251920B9CB00026218 /* RUTestViewController.m */,
+			);
+			name = controllers;
+			path = RUScrollView/controllers;
+			sourceTree = "<group>";
+		};
+		1CCA0805190F756D00022062 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				1C8965E2195829CF00A784A6 /* RequestParamModel.h */,
+				1C8965E3195829CF00A784A6 /* RequestParamModel.m */,
+				1C9043E2195918BB00D74BEA /* NewsListModel.h */,
+				1C9043E3195918BB00D74BEA /* NewsListModel.m */,
+				1C9043E5195942D400D74BEA /* NewsModel.h */,
+				1C9043E6195942D400D74BEA /* NewsModel.m */,
+			);
+			name = model;
+			path = RUScrollView/model;
+			sourceTree = "<group>";
+		};
+		1CCA0806190F757200022062 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				1C73A6D7196CE1930059AA5D /* DXLAlertView.h */,
+				1C73A6D8196CE1930059AA5D /* DXLAlertView.m */,
+				1C73A6D9196CE1930059AA5D /* DXLActionSheetView.h */,
+				1C73A6DA196CE1930059AA5D /* DXLActionSheetView.m */,
+				1C8965E519582F4F00A784A6 /* NetwokView.h */,
+				1C8965E619582F4F00A784A6 /* NetwokView.m */,
+				1C8965E719582F4F00A784A6 /* NetworkView.xib */,
+				1C1A4C4219517E9C00505689 /* RUShareView.h */,
+				1C1A4C4319517E9C00505689 /* RUShareView.m */,
+				1CCA0807190F75C300022062 /* RUScrollView.h */,
+				1CCA0808190F75C300022062 /* RUScrollView.m */,
+				1CCA0811190F76E700022062 /* RUButton.h */,
+				1CCA0812190F76E700022062 /* RUButton.m */,
+				1CCA082B190F8C0800022062 /* RUBarButton.h */,
+				1CCA082C190F8C0800022062 /* RUBarButton.m */,
+				1CD0B651191C806F0095F93F /* RUTableView.h */,
+				1CD0B652191C806F0095F93F /* RUTableView.m */,
+				1C964335192DDE2B00D74164 /* TestTableViewCell.h */,
+				1C964336192DDE2B00D74164 /* TestTableViewCell.m */,
+				1C964329192D96A400D74164 /* TestTableViewFirstStyleCell.h */,
+				1C96432A192D96A400D74164 /* TestTableViewFirstStyleCell.m */,
+				1C964331192D973400D74164 /* TestTableViewFirstStyleCell.xib */,
+				1C96432C192D96B500D74164 /* TestTableViewSecondStyleCell.h */,
+				1C96432D192D96B500D74164 /* TestTableViewSecondStyleCell.m */,
+				1C964333192D973A00D74164 /* TestTableViewSecondStyleCell.xib */,
+				214EF1CF19556C77009E7987 /* TestTableView.h */,
+				214EF1D019556C77009E7987 /* TestTableView.m */,
+				214EF1D219556CB9009E7987 /* TestTableView.xib */,
+				1C8965ED1958386F00A784A6 /* NewsCell.h */,
+				1C8965EE1958386F00A784A6 /* NewsCell.m */,
+				1C8965F2195838C000A784A6 /* NewsCell.xib */,
+				1CCC70B01959526700347CBE /* NewsTableView.h */,
+				1CCC70B11959526700347CBE /* NewsTableView.m */,
+				1CCC70B3195952A300347CBE /* NewsTableView.xib */,
+			);
+			name = views;
+			path = RUScrollView/views;
+			sourceTree = "<group>";
+		};
+		1CCA080D190F767300022062 /* others */ = {
+			isa = PBXGroup;
+			children = (
+				1C7768E7194AD21400B7588B /* MJRefresh */,
+				1CCA080E190F76AB00022062 /* UrlRequestManager.h */,
+				1CCA080F190F76AB00022062 /* UrlRequestManager.m */,
+			);
+			name = others;
+			path = RUScrollView/others;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1CCA07CE190F747500022062 /* RUScrollView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CCA07FB190F747500022062 /* Build configuration list for PBXNativeTarget "RUScrollView" */;
+			buildPhases = (
+				FADEAA14932640C3B0356262 /* Check Pods Manifest.lock */,
+				1CCA07CB190F747500022062 /* Sources */,
+				1CCA07CC190F747500022062 /* Frameworks */,
+				1CCA07CD190F747500022062 /* Resources */,
+				4E6A87E6B53A4343931568EB /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RUScrollView;
+			productName = RUScrollView;
+			productReference = 1CCA07CF190F747500022062 /* RUScrollView.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1CCA07E9190F747500022062 /* RUScrollViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CCA07FE190F747500022062 /* Build configuration list for PBXNativeTarget "RUScrollViewTests" */;
+			buildPhases = (
+				1CCA07E6190F747500022062 /* Sources */,
+				1CCA07E7190F747500022062 /* Frameworks */,
+				1CCA07E8190F747500022062 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1CCA07F0190F747500022062 /* PBXTargetDependency */,
+			);
+			name = RUScrollViewTests;
+			productName = RUScrollViewTests;
+			productReference = 1CCA07EA190F747500022062 /* RUScrollViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1CCA07C7190F747500022062 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = RU;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = lcqgrey;
+				TargetAttributes = {
+					1CCA07E9190F747500022062 = {
+						TestTargetID = 1CCA07CE190F747500022062;
+					};
+				};
+			};
+			buildConfigurationList = 1CCA07CA190F747500022062 /* Build configuration list for PBXProject "RUScrollView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				"zh-Hans",
+				fr,
+			);
+			mainGroup = 1CCA07C6190F747500022062;
+			productRefGroup = 1CCA07D0190F747500022062 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1CCA07CE190F747500022062 /* RUScrollView */,
+				1CCA07E9190F747500022062 /* RUScrollViewTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1CCA07CD190F747500022062 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C964334192D973A00D74164 /* TestTableViewSecondStyleCell.xib in Resources */,
+				1C7768F2194AD21400B7588B /* MJRefresh.bundle in Resources */,
+				214EF1D319556CB9009E7987 /* TestTableView.xib in Resources */,
+				1CCA07E5190F747500022062 /* Images.xcassets in Resources */,
+				1C964332192D973400D74164 /* TestTableViewFirstStyleCell.xib in Resources */,
+				1C8965E919582F4F00A784A6 /* NetworkView.xib in Resources */,
+				1C8965F3195838C000A784A6 /* NewsCell.xib in Resources */,
+				1C7082981910D4BF0098FF44 /* Localizable.strings in Resources */,
+				1CCC70B4195952A300347CBE /* NewsTableView.xib in Resources */,
+				1C964325192D920800D74164 /* images.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CCA07E8190F747500022062 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4E6A87E6B53A4343931568EB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FADEAA14932640C3B0356262 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1CCA07CB190F747500022062 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CCA0822190F791200022062 /* SecondViewController.m in Sources */,
+				1CD0B653191C806F0095F93F /* RUTableView.m in Sources */,
+				1C9043E4195918BB00D74BEA /* NewsListModel.m in Sources */,
+				1CCA0813190F76E700022062 /* RUButton.m in Sources */,
+				1CCA0828190F793100022062 /* ForthViewController.m in Sources */,
+				1C73A6DC196CE1930059AA5D /* DXLActionSheetView.m in Sources */,
+				1C7768F4194AD21400B7588B /* MJRefreshConst.m in Sources */,
+				1C8965EF1958386F00A784A6 /* NewsCell.m in Sources */,
+				1CCA0830190FAC4800022062 /* RUNavigationViewController.m in Sources */,
+				1C7768F3194AD21400B7588B /* MJRefreshBaseView.m in Sources */,
+				1C964337192DDE2B00D74164 /* TestTableViewCell.m in Sources */,
+				1CCA081F190F790100022062 /* FirstViewController.m in Sources */,
+				1CCA081C190F787C00022062 /* RootViewController.m in Sources */,
+				1C8965E4195829CF00A784A6 /* RequestParamModel.m in Sources */,
+				1C7768F6194AD21400B7588B /* MJRefreshHeaderView.m in Sources */,
+				1C8965E11958205A00A784A6 /* AppRequestClient.m in Sources */,
+				1CCA0825190F792000022062 /* ThirdViewController.m in Sources */,
+				1CCA07DF190F747500022062 /* main.m in Sources */,
+				1C96432B192D96A400D74164 /* TestTableViewFirstStyleCell.m in Sources */,
+				1CCA0810190F76AB00022062 /* UrlRequestManager.m in Sources */,
+				1C96432E192D96B500D74164 /* TestTableViewSecondStyleCell.m in Sources */,
+				1C9043E7195942D400D74BEA /* NewsModel.m in Sources */,
+				1CA7C7C119249ED100BEB997 /* UIViewExt.m in Sources */,
+				1C1A4C4419517E9C00505689 /* RUShareView.m in Sources */,
+				1CCA07E3190F747500022062 /* RUAppDelegate.m in Sources */,
+				1CD381261920B9CB00026218 /* RUTestViewController.m in Sources */,
+				1C7768F5194AD21400B7588B /* MJRefreshFooterView.m in Sources */,
+				1C73A6DB196CE1930059AA5D /* DXLAlertView.m in Sources */,
+				1CA7C7B719249DF300BEB997 /* NSDate+DateCalculate.m in Sources */,
+				1CCA0809190F75C300022062 /* RUScrollView.m in Sources */,
+				1C8965E819582F4F00A784A6 /* NetwokView.m in Sources */,
+				1CCA082D190F8C0800022062 /* RUBarButton.m in Sources */,
+				1CCC70B21959526700347CBE /* NewsTableView.m in Sources */,
+				1CCA080C190F763300022062 /* ViewControllerOrigin.m in Sources */,
+				1C8965EC19582F8500A784A6 /* RUUtils.m in Sources */,
+				214EF1D119556C77009E7987 /* TestTableView.m in Sources */,
+				1CA7C7C219249ED100BEB997 /* WXHLGlobalUICommon.m in Sources */,
+				1CD0B640191C79190095F93F /* AppManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CCA07E6190F747500022062 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CCA07F8190F747500022062 /* RUScrollViewTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1CCA07F0190F747500022062 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1CCA07CE190F747500022062 /* RUScrollView */;
+			targetProxy = 1CCA07EF190F747500022062 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1C70829A1910D4BF0098FF44 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1C7082991910D4BF0098FF44 /* Base */,
+				1C70829B1910D4C40098FF44 /* en */,
+				1C70829C1910D4C40098FF44 /* zh-Hans */,
+				1C70829D1910D4C50098FF44 /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1CCA07F9190F747500022062 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1CCA07FA190F747500022062 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1CCA07FC190F747500022062 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A16649575CE644A896D150AD /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RUScrollView/RUScrollView-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				INFOPLIST_FILE = "RUScrollView/RUScrollView-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1CCA07FD190F747500022062 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A16649575CE644A896D150AD /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RUScrollView/RUScrollView-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				INFOPLIST_FILE = "RUScrollView/RUScrollView-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		1CCA07FF190F747500022062 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RUScrollView.app/RUScrollView";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RUScrollView/RUScrollView-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "RUScrollViewTests/RUScrollViewTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		1CCA0800190F747500022062 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RUScrollView.app/RUScrollView";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RUScrollView/RUScrollView-Prefix.pch";
+				INFOPLIST_FILE = "RUScrollViewTests/RUScrollViewTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1CCA07CA190F747500022062 /* Build configuration list for PBXProject "RUScrollView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CCA07F9190F747500022062 /* Debug */,
+				1CCA07FA190F747500022062 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CCA07FB190F747500022062 /* Build configuration list for PBXNativeTarget "RUScrollView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CCA07FC190F747500022062 /* Debug */,
+				1CCA07FD190F747500022062 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CCA07FE190F747500022062 /* Build configuration list for PBXNativeTarget "RUScrollViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CCA07FF190F747500022062 /* Debug */,
+				1CCA0800190F747500022062 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1CCA07C7190F747500022062 /* Project object */;
+}

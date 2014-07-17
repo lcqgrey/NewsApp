@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FirstCell" id="kTC-RH-eri" customClass="TestTableViewFirstStyleCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kTC-RH-eri" id="rnu-ir-4ek">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="179"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView tag="500" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ddF-fo-EXD">
+                        <rect key="frame" x="2" y="0.0" width="156" height="176"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="PLO-ZO-wJi" appends="YES" id="jcW-iU-cQz"/>
+                        </connections>
+                    </imageView>
+                    <imageView tag="501" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="vPB-b8-ewm">
+                        <rect key="frame" x="162" y="0.0" width="156" height="86"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="tM9-r2-9Rd" appends="YES" id="u6G-uc-HiK"/>
+                        </connections>
+                    </imageView>
+                    <imageView tag="502" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="h1m-s9-Xfm">
+                        <rect key="frame" x="162" y="90" width="156" height="86"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="fHR-8v-df1" appends="YES" id="TOG-3f-sUl"/>
+                        </connections>
+                    </imageView>
+                </subviews>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="firstImageView" destination="ddF-fo-EXD" id="w6U-KR-TBX"/>
+                <outlet property="secondImageView" destination="vPB-b8-ewm" id="jGX-Xb-s1r"/>
+                <outlet property="thirdImageView" destination="h1m-s9-Xfm" id="K84-kB-IYg"/>
+            </connections>
+        </tableViewCell>
+        <tapGestureRecognizer id="PLO-ZO-wJi">
+            <connections>
+                <action selector="didTapImage:" destination="kTC-RH-eri" id="y7C-Vx-z1J"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="tM9-r2-9Rd">
+            <connections>
+                <action selector="didTapImage:" destination="kTC-RH-eri" id="Tri-aT-TDU"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="fHR-8v-df1">
+            <connections>
+                <action selector="didTapImage:" destination="kTC-RH-eri" id="9JZ-4t-COS"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+</document>

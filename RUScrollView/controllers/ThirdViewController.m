@@ -68,7 +68,6 @@
     [orderSet addObject:@"6000"];
     [orderSet addObject:@"5000"];
     
-    
 }
 
 - (void)didReceiveMemoryWarning

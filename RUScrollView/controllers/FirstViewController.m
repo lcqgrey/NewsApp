@@ -61,7 +61,7 @@ NSString *const kPathIndex = @"selectedIndex";
 	// Do any additional setup after loading the view.
     categoryCount = 8;
     [self addObserver:self forKeyPath:kPathIndex options:NSKeyValueObservingOptionNew context:nil];
-    
+    BOOL iss;
     
     titleScrollView = [[RUScrollView alloc]initWithFrame:CGRectMake(0, 0, kViewWidth, 40)];
     titleScrollView.delegate = self;

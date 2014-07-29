@@ -169,10 +169,12 @@
 - (void)showAnimation
 {
     [self loadingView];
+    baffleView.userInteractionEnabled = NO;
     [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         containorView.frame = CGRectMake(0, self.bounds.size.height-height, defaultWith, height);
         baffleView.alpha = 0.4;
     } completion:^(BOOL finished) {
+        baffleView.userInteractionEnabled = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTap:)];
         [baffleView addGestureRecognizer:tap];
     }];

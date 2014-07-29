@@ -67,8 +67,6 @@
     [orderSet addObject:@"5000"];
     [orderSet addObject:@"6000"];
     [orderSet addObject:@"5000"];
-    
-    BOOL is;
 }
 
 - (void)didReceiveMemoryWarning

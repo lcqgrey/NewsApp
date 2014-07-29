@@ -146,7 +146,6 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    
 }
 
 - (void)showAnimation
@@ -167,7 +166,6 @@
 {
 
     if (animation) {
-        
         containorView.frame = CGRectMake(0, 0, defaultWith, height + 20);
         CGAffineTransform transform =
         CGAffineTransformScale(self.transform, 0.1, 0.1);

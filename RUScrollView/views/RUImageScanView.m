@@ -337,7 +337,7 @@
 
 - (void)dealloc
 {
-    NSLog(@"i am dealloc");
+    NSLog(@"is dealloc");
 }
 
 @end

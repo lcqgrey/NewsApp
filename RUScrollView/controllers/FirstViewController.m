@@ -62,7 +62,6 @@ NSString *const kPathIndex = @"selectedIndex";
     categoryCount = 8;
     [self addObserver:self forKeyPath:kPathIndex options:NSKeyValueObservingOptionNew context:nil];
     
-    
     titleScrollView = [[RUScrollView alloc]initWithFrame:CGRectMake(0, 0, kViewWidth, 40)];
     titleScrollView.delegate = self;
     titleScrollView.backgroundColor = [UIColor grayColor];

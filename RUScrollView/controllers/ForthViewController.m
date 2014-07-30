@@ -7,6 +7,7 @@
 //
 
 #import "ForthViewController.h"
+#import "RUImageScanView.h"
 
 @interface ForthViewController ()
 
@@ -27,6 +28,7 @@
 {
     return [[AppManager defaultManager] getLocalString:@"Forth"];
 }
+
 
 - (NSString *)getTi
 {

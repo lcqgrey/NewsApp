@@ -9,6 +9,7 @@
 #import "ThirdViewController.h"
 #import "DXLAlertView.h"
 #import "DXLActionSheetView.h"
+#import "RUImageScanView.h"
 
 @interface ThirdViewController () <DXLAlertViewDelegate,DXLActionSheetViewDelegate>
 
@@ -77,10 +78,26 @@
 
 - (void)didClick:(UIButton *)sender
 {
-    DXLAlertView *alert = [[DXLAlertView alloc]initWithMessageTitle:@"123" message:@"档期紧张,我们的顾问会尽快给您提供该吉日的酒店信息" delegate:self cancelButtonTitle:nil otherButtonTitles:@"fdsfds",@"fdsf",nil];
-    [alert showAnimation];
+//    DXLAlertView *alert = [[DXLAlertView alloc]initWithMessageTitle:@"123" message:@"档期紧张,我们的顾问会尽快给您提供该吉日的酒店信息" delegate:self cancelButtonTitle:nil otherButtonTitles:@"fdsfds",@"fdsf",nil];
+//    [alert showAnimation];
 //    DXLActionSheetView *vie = [[DXLActionSheetView alloc]initWithMessageTitle:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"分享到新浪",@"分享到腾讯",@"分享到微信", nil];
 //    [vie show];
+    RUImageScanView *imageView = [[RUImageScanView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+    imageView.earlyPageIndex = 6;
+    imageView.dataSource = [self images];
+    imageView.loopPlay = NO;
+    [KeyWindow addSubview:imageView];
+    
+}
+
+- (NSArray *)images
+{
+    NSMutableArray *arr = [NSMutableArray array];
+    for (int i = 0; i < 20; i++) {
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"images.bundle/%d.jpg",i + 1]];
+        [arr addObject:image];
+    }
+    return arr;
 }
 
 - (void)didActionSheet:(UIButton *)actionSheet withButtonIndex:(NSInteger)buttonIndex

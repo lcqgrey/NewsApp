@@ -12,6 +12,9 @@
 #define kWidth self.bounds.size.width
 #define kHeight self.bounds.size.height
 
+static NSString *pageIndexStr = @"0";
+
+
 @interface RUImageScanView () <UIScrollViewDelegate>
 {
     UIScrollView *slideScrollView;
@@ -20,26 +23,17 @@
     NSInteger pageIndex;
     BOOL isLeft;
     CGFloat newx;
-    CGFloat oldx;
-    CGPoint oldOffset;
+    BOOL isScrolling;
 }
 
 @end
 
 @implementation RUImageScanView
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        
-    }
-    return self;
-}
 
 - (id)initWithFrame:(CGRect)frame
 {
-    self = [super init];
+    self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
         self.maxZoomScale = 3;
@@ -53,82 +47,99 @@
     return self;
 }
 
-- (void)setInitialPageIndex:(NSInteger)initialPageIndex
+- (void)setEarlyPageIndex:(NSInteger)earlyPageIndex
 {
-    _initialPageIndex = initialPageIndex;
-    pageIndex = initialPageIndex;
+    _earlyPageIndex = earlyPageIndex;
+    pageIndex = _earlyPageIndex;
 }
 
 - (void)setDataSource:(NSArray *)dataSource
 {
     _dataSource = dataSource;
-    if (dataSource.count == 0) {
-        return;
-    }
-    dataSourceCount = _dataSource.count;
-    slideScrollView = [[UIScrollView alloc]init];
-    slideScrollView.frame = self.frame;
-    slideScrollView.pagingEnabled = YES;
-    slideScrollView.delegate = self;
-    scanViewArray = [NSMutableArray array];
-    if (dataSourceCount == 1) {
-        slideScrollView.contentSize = CGSizeMake(self.frame.size.width, self.frame.size.height);
-        ScanView *view = [[ScanView alloc]init];
-        view.frame = CGRectMake(slideScrollView.bounds.size.width, slideScrollView.bounds.origin.y, slideScrollView.bounds.size.width, slideScrollView.bounds.size.height);
-        view.imageData = _dataSource[pageIndex];
-        view.maximumZoomScale = _maxZoomScale;
-        view.minimumZoomScale = _minZoomScale;
-        view.tapBlock = self.tapBlock;
-        [slideScrollView addSubview:view];
-        [scanViewArray addObject:view];
-    }
-    else {
-        slideScrollView.contentSize = CGSizeMake(3*self.frame.size.width, self.frame.size.height);
-        CGPoint offset = slideScrollView.contentOffset;
-        offset.x = slideScrollView.bounds.size.width;
-        slideScrollView.contentOffset = offset;
-        
-        oldOffset = slideScrollView.contentOffset;
-        oldx = slideScrollView.contentOffset.x;
-        
-        for (int i = 0 ; i < dataSourceCount ; i++) {
-            ScanView *view = [[ScanView alloc]init];
-            view.frame = CGRectMake(i * slideScrollView.bounds.size.width, slideScrollView.bounds.origin.y, slideScrollView.bounds.size.width, slideScrollView.bounds.size.height);
-            NSInteger tempIndex = 0;
-            if (i == 0) {
-                tempIndex = pageIndex - i;
-                if (tempIndex < 0) {
-                    tempIndex = _dataSource.count;
-                }
-                view.imageData = _dataSource[tempIndex];
-            }
-            else if (i == 1) {
-                tempIndex = pageIndex;
-                view.imageData = _dataSource[tempIndex];
-            }
-            else if (i == 2) {
-                tempIndex = pageIndex + i;
-                if (tempIndex > _dataSource.count) {
-                    tempIndex = 0;
-                }
-                view.imageData = _dataSource[tempIndex];
-            }
-            view.maximumZoomScale = _maxZoomScale;
-            view.minimumZoomScale = _minZoomScale;
-            view.tapBlock = self.tapBlock;
-            [slideScrollView addSubview:view];
-            [scanViewArray addObject:view];
-        }
-    }
-    [self addSubview:slideScrollView];
 }
+
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    
+
+    if (!slideScrollView) {
+        dataSourceCount = _dataSource.count;
+        if (dataSourceCount == 0) {
+            return;
+        }
+        slideScrollView = [[UIScrollView alloc]init];
+        slideScrollView.backgroundColor = [UIColor blackColor];
+        slideScrollView.frame = self.frame;
+        slideScrollView.pagingEnabled = YES;
+        if (_loopPlay) {
+            slideScrollView.bounces = NO;
+        }
+        else {
+            slideScrollView.bounces = YES;
+        }
+        slideScrollView.delegate = self;
+        slideScrollView.showsHorizontalScrollIndicator = NO;
+        scanViewArray = [NSMutableArray array];
+        if (dataSourceCount == 1) {
+            slideScrollView.contentSize = CGSizeMake(self.frame.size.width, self.frame.size.height);
+            ScanView *view = [[ScanView alloc]init];
+            view.frame = CGRectMake(0, slideScrollView.frame.origin.y, slideScrollView.bounds.size.width, slideScrollView.bounds.size.height);
+            view.imageData = _dataSource[pageIndex];
+            view.maximumZoomScale = _maxZoomScale;
+            view.minimumZoomScale = _minZoomScale;
+            view.pageIndex = pageIndex;
+            view.loopPlay = _loopPlay;
+            view.doubleTapBlock = self.doubleTapBlock;
+            [scanViewArray addObject:view];
+            [slideScrollView addSubview:view];
+        }
+        else {
+            slideScrollView.contentSize = CGSizeMake(3*self.frame.size.width, self.frame.size.height);
+            CGPoint offset = slideScrollView.contentOffset;
+            offset.x = slideScrollView.bounds.size.width;
+            slideScrollView.contentOffset = offset;
+            
+            for (int i = 0 ; i < 3 ; i++) {
+                ScanView *view = [[ScanView alloc]init];
+                view.frame = CGRectMake(i * slideScrollView.bounds.size.width, slideScrollView.frame.origin.y, slideScrollView.bounds.size.width, slideScrollView.bounds.size.height);
+                NSInteger tempIndex = 0;
+                if (i == 0) {
+                    tempIndex = pageIndex - 1;
+                    if (tempIndex < 0) {
+                        tempIndex = _dataSource.count - 1;
+                    }
+                    view.imageData = _dataSource[tempIndex];
+                }
+                else if (i == 1) {
+                    tempIndex = pageIndex;
+                    view.imageData = _dataSource[tempIndex];
+                }
+                else if (i == 2) {
+                    tempIndex = pageIndex + 1;
+                    if (tempIndex > _dataSource.count - 1) {
+                        tempIndex = 0;
+                    }
+                    view.imageData = _dataSource[tempIndex];
+                }
+                view.maximumZoomScale = _maxZoomScale;
+                view.minimumZoomScale = _minZoomScale;
+                view.pageIndex = pageIndex;
+                view.loopPlay = _loopPlay;
+                view.doubleTapBlock = self.doubleTapBlock;
+                [scanViewArray addObject:view];
+                [slideScrollView addSubview:view];
+            }
+        }
+        [self addSubview:slideScrollView];
+    }
 }
 
+- (void)setShowAnimation:(BOOL)showAnimation
+{
+    _showAnimation = showAnimation;
+    
+}
 
 - (NSInteger)pageIndicator
 {
@@ -136,96 +147,95 @@
 }
 
 
+- (void)layoutScanView
+{
+    for (int i = 0; i < 3; i++) {
+        ScanView *view = scanViewArray[i];
+        NSInteger tempIndex = 0;
+        if (i == 0) {
+            tempIndex = pageIndex - 1;
+            if (tempIndex < 0) {
+                tempIndex = _dataSource.count - 1;
+            }
+            view.pageIndex = tempIndex;
+            view.imageData = _dataSource[tempIndex];
+        }
+        else if (i == 1) {
+            tempIndex = pageIndex;
+            view.pageIndex = tempIndex;
+            view.imageData = _dataSource[tempIndex];
+        }
+        else if (i == 2) {
+            tempIndex = pageIndex + 1;
+            if (tempIndex > _dataSource.count - 1) {
+                tempIndex = 0;
+            }
+            view.pageIndex = tempIndex;
+            view.imageData = _dataSource[tempIndex];
+        }
+    }
+}
+
 #pragma mark - scroll delegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     newx = scrollView.contentOffset.x ;
-    if (newx != oldx ) {
-        if (newx > oldx) {
+    if (newx != slideScrollView.bounds.size.width) {
+        if (newx > slideScrollView.bounds.size.width) {
             isLeft = YES;
-        }else if(newx < oldx){
+        }else if(newx < slideScrollView.bounds.size.width){
             isLeft = NO;
         }
-        oldx = newx;
     }
+
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    if (isLeft) {
-        [self showNextView];
+    if (scrollView.contentOffset.x == 2 * slideScrollView.bounds.size.width || scrollView.contentOffset.x == 0) {
+        if (isLeft) {
+            [self showNextView];
+        }
+        else {
+            [self showPreView];
+        }
     }
-    else {
-        [self showPreView];
-    }
+
+    CGPoint offset = slideScrollView.contentOffset;
+    offset.x = slideScrollView.bounds.size.width;
+    slideScrollView.contentOffset = offset;
 }
 
+//前一页
 - (void)showPreView
 {
-    if (fabs(slideScrollView.contentOffset.x - oldOffset.x) >= slideScrollView.bounds.size.width) {
-        pageIndex -= 1;
-        if (pageIndex < 0) {
-            pageIndex = _dataSource.count;
-        }
-        for (int i = 0; i < scanViewArray.count; i++) {
-            ScanView *view = scanViewArray[i];
-            NSInteger tempIndex = 0;
-            if (i == 0) {
-                tempIndex = pageIndex - i;
-                if (tempIndex < 0) {
-                    tempIndex = _dataSource.count;
-                }
-                view.imageData = _dataSource[tempIndex];
-            }
-            else if (i == 1) {
-                tempIndex = pageIndex;
-                view.imageData = _dataSource[tempIndex];
-            }
-            else if (i == 2) {
-                tempIndex = pageIndex + i;
-                if (tempIndex > _dataSource.count) {
-                    tempIndex = 0;
-                }
-                view.imageData = _dataSource[tempIndex];
-            }
-        }
-        oldOffset = slideScrollView.contentOffset;
+    pageIndex -= 1;
+    if (pageIndex < 0) {
+        pageIndex = _dataSource.count - 1;
+    }
+    [self layoutScanView];
+}
+
+//后一页
+- (void)showNextView
+{
+    pageIndex += 1;
+    if (pageIndex > _dataSource.count - 1) {
+        pageIndex = 0;
+    }
+    [self layoutScanView];
+}
+
+
+//单击
+- (void)singleTapG:(UITapGestureRecognizer *)sender
+{
+    if (self.doubleTapBlock) {
+        self.doubleTapBlock();
     }
 }
 
-- (void)showNextView
-{
-    if (fabs(slideScrollView.contentOffset.x - oldOffset.x) >= slideScrollView.bounds.size.width) {
-        pageIndex += 1;
-        if (pageIndex > _dataSource.count) {
-            pageIndex = 0;
-        }
-        for (int i = 0; i < scanViewArray.count; i++) {
-            ScanView *view = scanViewArray[i];
-            NSInteger tempIndex = 0;
-            if (i == 0) {
-                tempIndex = pageIndex - i;
-                if (tempIndex < 0) {
-                    tempIndex = _dataSource.count;
-                }
-                view.imageData = _dataSource[tempIndex];
-            }
-            else if (i == 1) {
-                tempIndex = pageIndex;
-                view.imageData = _dataSource[tempIndex];
-            }
-            else if (i == 2) {
-                tempIndex = pageIndex + i;
-                if (tempIndex > _dataSource.count) {
-                    tempIndex = 0;
-                }
-                view.imageData = _dataSource[tempIndex];
-            }
-        }
-        oldOffset = slideScrollView.contentOffset;
-    }
-}
 
 @end
 
@@ -233,7 +243,7 @@
 @interface ScanView () <UIScrollViewDelegate>
 {
     UIImageView *customImageView;
-    BOOL isZoomScale;
+    BOOL isDoubleTapZoom;
     CGFloat touchX;
     CGFloat touchY;
     CGFloat offsetY;
@@ -247,17 +257,40 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        customImageView = [[UIImageView alloc]initWithFrame:frame];
-        customImageView.contentMode = UIViewContentModeScaleAspectFit;
-        [self addSubview:customImageView];
+        
         self.delegate = self;
     }
     return self;
 }
 
-- (void)setImagedata:(id)imagedata
+- (void)layoutSubviews
 {
-    _imageData = imagedata;
+    [super layoutSubviews];
+}
+
+- (void)setPageIndex:(NSInteger)pageIndex
+{
+    _pageIndex = pageIndex;
+}
+
+- (void)setImageData:(id)imageData
+{
+    _imageData = imageData;
+    
+    if (!customImageView) {
+        NSLog(@"set customImageView");
+        customImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
+        customImageView.userInteractionEnabled = YES;
+        customImageView.contentMode = UIViewContentModeScaleAspectFit;
+        [self addSubview:customImageView];
+        
+        UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didDoubleTap:)];
+        doubleTap.numberOfTapsRequired = 2;
+        [customImageView addGestureRecognizer:doubleTap];
+    }
+    isDoubleTapZoom = NO;
+    [self setZoomScale:1.0];
+
     if ([_imageData isKindOfClass:[NSString class]]) {
         NSURL *url = [NSURL URLWithString:_imageData];
         __weak UIImageView *tempImageView = customImageView;
@@ -284,56 +317,34 @@
 
 #pragma mark - scrollView delegate
 
-- (void)scrollViewDidZoom:(UIScrollView *)scrollView
-{
-    
-    //当捏或移动时，需要对center重新定义以达到正确显示未知
-    CGFloat xcenter = scrollView.center.x,ycenter = scrollView.center.y;
-    xcenter = scrollView.contentSize.width > scrollView.frame.size.width?scrollView.contentSize.width/2 :xcenter;
-    ycenter = scrollView.contentSize.height > scrollView.frame.size.height ?scrollView.contentSize.height/2 : ycenter;
-    //双击放大时，图片不能越界，否则会出现空白。因此需要对边界值进行限制。
-    if(isZoomScale){
-        xcenter = scrollView.maximumZoomScale*(kWidth - touchX);
-        ycenter = scrollView.maximumZoomScale*(kHeight - touchY);
-        if(xcenter > (scrollView.maximumZoomScale - 0.5)*kWidth){//放大后左边超界
-            xcenter = (scrollView.maximumZoomScale - 0.5)*kWidth;
-        }else if(xcenter <0.5*kWidth){//放大后右边超界
-            xcenter = 0.5*kWidth;
-        }
-        if(ycenter > (scrollView.maximumZoomScale - 0.5)*kHeight){//放大后左边超界
-            ycenter = (scrollView.maximumZoomScale - 0.5)*kHeight +offsetY*scrollView.maximumZoomScale;
-        }else if(ycenter <0.5*kHeight){//放大后右边超界
-            ycenter = 0.5*kHeight +offsetY*scrollView.maximumZoomScale;
-        }
-    }
-    [customImageView setCenter:CGPointMake(xcenter, ycenter)];
-}
-
 -(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
     return customImageView;
 }
 
 //双击
-- (void)doubleTap:(UITapGestureRecognizer *)sender
+- (void)didDoubleTap:(UITapGestureRecognizer *)sender
 {
     touchX = [sender locationInView:sender.view].x;
     touchY = [sender locationInView:sender.view].y;
-    if(isZoomScale){
-        isZoomScale = NO;
+    if (self.zoomScale > 1.0) {
+        isDoubleTapZoom = YES;
+    }
+    if(isDoubleTapZoom){
+        isDoubleTapZoom = NO;
         [self setZoomScale:1.0 animated:YES];
     }else{
-        isZoomScale = YES;
+        isDoubleTapZoom = YES;
+        pageIndexStr = [NSString stringWithFormat:@"%d",self.pageIndex];
         [self setZoomScale:self.maximumZoomScale animated:YES];
+
+        //双击放大时，改变偏移量，让图片显示点击位置的部分图片。
+        CGPoint offset = self.contentOffset;
+        offset.x = self.maximumZoomScale * touchX - touchX;
+        offset.y = self.maximumZoomScale * touchY - touchY;
+        self.contentOffset = offset;
     }
 }
 
-//单击
-- (void)singleTapG:(UITapGestureRecognizer *)sender
-{
-    if (self.tapBlock) {
-        self.tapBlock();
-    }
-}
 
 - (void)dealloc
 {

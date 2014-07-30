@@ -19,17 +19,20 @@ typedef void(^GestureBlock)(void);
 @property (nonatomic) BOOL hasBottom;
 @property (nonatomic) BOOL autoPlay;
 @property (nonatomic) BOOL loopPlay;
-@property (nonatomic) NSInteger initialPageIndex;
-@property (nonatomic, getter = pageIndicator) NSInteger pageIndicator;
-@property (nonatomic, copy) GestureBlock tapBlock;
+@property (nonatomic) NSInteger earlyPageIndex;
+@property (nonatomic, readonly, getter = pageIndicator) NSInteger pageIndicator;
+@property (nonatomic, copy) GestureBlock doubleTapBlock;
+@property (nonatomic) BOOL showAnimation;
 
 @end
 
 
 @interface ScanView : UIScrollView
-
+@property (nonatomic) BOOL loopPlay;
 @property (nonatomic, strong) id imageData;
-@property (nonatomic, copy) GestureBlock tapBlock;
+@property (nonatomic) NSInteger pageIndex;
+
+@property (nonatomic, copy) GestureBlock doubleTapBlock;
 
 
 @end

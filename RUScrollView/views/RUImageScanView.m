@@ -24,6 +24,8 @@ static NSString *pageIndexStr = @"0";
     BOOL isLeft;
     CGFloat newx;
     BOOL isScrolling;
+    BOOL isPreEnd;
+    BOOL isNextEnd;
 }
 
 @end
@@ -72,12 +74,7 @@ static NSString *pageIndexStr = @"0";
         slideScrollView.backgroundColor = [UIColor blackColor];
         slideScrollView.frame = self.frame;
         slideScrollView.pagingEnabled = YES;
-        if (_loopPlay) {
-            slideScrollView.bounces = NO;
-        }
-        else {
-            slideScrollView.bounces = YES;
-        }
+        slideScrollView.bounces = NO;
         slideScrollView.delegate = self;
         slideScrollView.showsHorizontalScrollIndicator = NO;
         scanViewArray = [NSMutableArray array];
@@ -93,6 +90,37 @@ static NSString *pageIndexStr = @"0";
             view.doubleTapBlock = self.doubleTapBlock;
             [scanViewArray addObject:view];
             [slideScrollView addSubview:view];
+        }
+        else if (dataSourceCount == 2 && !_loopPlay) {
+            slideScrollView.contentSize = CGSizeMake(2*self.frame.size.width, self.frame.size.height);
+            CGPoint offset = slideScrollView.contentOffset;
+            offset.x = slideScrollView.bounds.size.width;
+            slideScrollView.contentOffset = offset;
+            
+            for (int i = 0 ; i < 2 ; i++) {
+                ScanView *view = [[ScanView alloc]init];
+                view.frame = CGRectMake(i * slideScrollView.bounds.size.width, slideScrollView.frame.origin.y, slideScrollView.bounds.size.width, slideScrollView.bounds.size.height);
+                view.imageData = _dataSource[i];
+                view.maximumZoomScale = _maxZoomScale;
+                view.minimumZoomScale = _minZoomScale;
+                view.pageIndex = pageIndex;
+                view.loopPlay = _loopPlay;
+                view.doubleTapBlock = self.doubleTapBlock;
+                slideScrollView.delegate = nil;
+                slideScrollView.bounces = YES;
+                if (pageIndex == 1) {
+                    CGPoint offset = slideScrollView.contentOffset;
+                    offset.x = slideScrollView.bounds.size.width;
+                    slideScrollView.contentOffset = offset;
+                }
+                else {
+                    CGPoint offset = slideScrollView.contentOffset;
+                    offset.x = 0;
+                    slideScrollView.contentOffset = offset;
+                }
+                [scanViewArray addObject:view];
+                [slideScrollView addSubview:view];
+            }
         }
         else {
             slideScrollView.contentSize = CGSizeMake(3*self.frame.size.width, self.frame.size.height);
@@ -181,11 +209,40 @@ static NSString *pageIndexStr = @"0";
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     newx = scrollView.contentOffset.x ;
-    if (newx != slideScrollView.bounds.size.width) {
-        if (newx > slideScrollView.bounds.size.width) {
-            isLeft = YES;
-        }else if(newx < slideScrollView.bounds.size.width){
-            isLeft = NO;
+    if (_loopPlay) {
+        if (newx != slideScrollView.bounds.size.width && newx != 2 * slideScrollView.bounds.size.width && newx != 0) {
+            if (newx > slideScrollView.bounds.size.width) {
+                isLeft = YES;
+            }else if(newx < slideScrollView.bounds.size.width){
+                isLeft = NO;
+            }
+        }
+    }
+    else {
+        if (newx != slideScrollView.bounds.size.width && newx != 2 * slideScrollView.bounds.size.width && newx != 0) {
+            if (isNextEnd) {
+                if (newx > 2 * slideScrollView.bounds.size.width) {
+                    isLeft = YES;
+                }
+                else {
+                    isLeft = NO;
+                }
+            }
+            else if (isPreEnd) {
+                if (newx > 0) {
+                    isLeft = YES;
+                }
+                else {
+                    isLeft = NO;
+                }
+            }
+            else {
+                if (newx > slideScrollView.bounds.size.width) {
+                    isLeft = YES;
+                }else if(newx < slideScrollView.bounds.size.width){
+                    isLeft = NO;
+                }
+            }
         }
     }
 
@@ -193,18 +250,94 @@ static NSString *pageIndexStr = @"0";
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    if (scrollView.contentOffset.x == 2 * slideScrollView.bounds.size.width || scrollView.contentOffset.x == 0) {
+    if (_loopPlay) {
+        [self loopPlayOperationWithScrollView:scrollView];
+    }
+    else {
+        [self notLoopPlayOperationWithScrollView:scrollView];
+    }
+}
+
+- (void)loopPlayOperationWithScrollView:(UIScrollView *)scrollView
+{
+    if (scrollView.contentOffset.x == 2 * slideScrollView.bounds.size.width || slideScrollView.contentOffset.x == 0) {
         if (isLeft) {
             [self showNextView];
         }
         else {
             [self showPreView];
         }
+        CGPoint offset = slideScrollView.contentOffset;
+        offset.x = slideScrollView.bounds.size.width;
+        slideScrollView.contentOffset = offset;
     }
+}
 
-    CGPoint offset = slideScrollView.contentOffset;
-    offset.x = slideScrollView.bounds.size.width;
-    slideScrollView.contentOffset = offset;
+- (void)notLoopPlayOperationWithScrollView:(UIScrollView *)scrollView
+{
+    NSLog(@"++%f",scrollView.contentOffset.x);
+    if ((scrollView.contentOffset.x == 2 * slideScrollView.bounds.size.width && !isNextEnd) || (scrollView.contentOffset.x == 0 && !isPreEnd) || (scrollView.contentOffset.x == slideScrollView.bounds.size.width && (isPreEnd || isNextEnd))) {
+        if (isNextEnd || isPreEnd) {
+            if (isLeft && slideScrollView.contentOffset.x != 2 * slideScrollView.bounds.size.width) {
+                pageIndex = 1;
+                isPreEnd = NO;
+                slideScrollView.bounces = NO;
+            }
+            else if (!isLeft && slideScrollView.contentOffset.x != 0) {
+                pageIndex = _dataSource.count - 2;
+                isNextEnd = NO;
+                slideScrollView.bounces = NO;
+            }
+        }
+        else {
+            if (isLeft) {
+                isPreEnd = NO;
+                if (pageIndex == 0) {
+                    pageIndex = 1;
+                }
+                else if (pageIndex == _dataSource.count - 2) {
+                    pageIndex = _dataSource.count - 1;
+                    isNextEnd = YES;
+                }
+                if (!isNextEnd) {
+                    [self showNextView];
+                    slideScrollView.bounces = NO;
+                    CGPoint offset = slideScrollView.contentOffset;
+                    offset.x = slideScrollView.bounds.size.width;
+                    slideScrollView.contentOffset = offset;
+                }
+                else {
+                    slideScrollView.bounces = YES;
+                    CGPoint offset = slideScrollView.contentOffset;
+                    offset.x = 2 * slideScrollView.bounds.size.width;
+                    slideScrollView.contentOffset = offset;
+                }
+            }
+            else {
+                isNextEnd = NO;
+                if (pageIndex == _dataSource.count - 1) {
+                    pageIndex = _dataSource.count - 2;
+                }
+                else if (pageIndex == 1) {
+                    pageIndex = 0;
+                    isPreEnd = YES;
+                }
+                if (!isPreEnd) {
+                    [self showPreView];
+                    slideScrollView.bounces = NO;
+                    CGPoint offset = slideScrollView.contentOffset;
+                    offset.x = slideScrollView.bounds.size.width;
+                    slideScrollView.contentOffset = offset;
+                }
+                else {
+                    slideScrollView.bounces = YES;
+                    CGPoint offset = slideScrollView.contentOffset;
+                    offset.x = 0;
+                    slideScrollView.contentOffset = offset;
+                }
+            }
+        }
+    }
 }
 
 //前一页
@@ -257,7 +390,6 @@ static NSString *pageIndexStr = @"0";
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
         self.delegate = self;
     }
     return self;
@@ -276,9 +408,7 @@ static NSString *pageIndexStr = @"0";
 - (void)setImageData:(id)imageData
 {
     _imageData = imageData;
-    
     if (!customImageView) {
-        NSLog(@"set customImageView");
         customImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
         customImageView.userInteractionEnabled = YES;
         customImageView.contentMode = UIViewContentModeScaleAspectFit;

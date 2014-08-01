@@ -83,9 +83,10 @@
 //    DXLActionSheetView *vie = [[DXLActionSheetView alloc]initWithMessageTitle:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"分享到新浪",@"分享到腾讯",@"分享到微信", nil];
 //    [vie show];
     RUImageScanView *imageView = [[RUImageScanView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
-    imageView.earlyPageIndex = 6;
+    imageView.earlyPageIndex = 0;
     imageView.dataSource = [self images];
-    imageView.loopPlay = NO;
+    imageView.loopPlay = YES;
+    imageView.showAnimation = YES;
     [KeyWindow addSubview:imageView];
     
 }
@@ -93,7 +94,7 @@
 - (NSArray *)images
 {
     NSMutableArray *arr = [NSMutableArray array];
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 4; i++) {
         UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"images.bundle/%d.jpg",i + 1]];
         [arr addObject:image];
     }

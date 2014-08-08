@@ -10,6 +10,17 @@
 
 @implementation RUUtils
 
++ (UIViewController*)viewInviewController:(UIView *)view
+{
+    for (UIView *next = [view superview]; next; next = next.superview) {
+        UIResponder* nextResponder = [next nextResponder];
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController*)nextResponder;
+        }
+    }
+    return nil;
+}
+
 + (UIColor *)getColor:(id)sender
 {
     UIColor *color = nil;

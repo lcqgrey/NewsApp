@@ -64,6 +64,7 @@
 		214EF1D119556C77009E7987 /* TestTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 214EF1D019556C77009E7987 /* TestTableView.m */; };
 		214EF1D319556CB9009E7987 /* TestTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 214EF1D219556CB9009E7987 /* TestTableView.xib */; };
 		87381FBDBB7D440986653CDC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C018BA7EE4C4ABBBD522B38 /* libPods.a */; };
+		A8C3A81819950F100029FAB8 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C3A81719950F100029FAB8 /* TestView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,6 +182,8 @@
 		214EF1D219556CB9009E7987 /* TestTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestTableView.xib; sourceTree = "<group>"; };
 		6C018BA7EE4C4ABBBD522B38 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A16649575CE644A896D150AD /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		A8C3A81619950F100029FAB8 /* TestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
+		A8C3A81719950F100029FAB8 /* TestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -354,6 +357,8 @@
 				1CCA0824190F792000022062 /* ThirdViewController.m */,
 				1CCA0826190F793100022062 /* ForthViewController.h */,
 				1CCA0827190F793100022062 /* ForthViewController.m */,
+				A8C3A81619950F100029FAB8 /* TestView.h */,
+				A8C3A81719950F100029FAB8 /* TestView.m */,
 				1CCA082E190FAC4800022062 /* RUNavigationViewController.h */,
 				1CCA082F190FAC4800022062 /* RUNavigationViewController.m */,
 				1CD381241920B9CB00026218 /* RUTestViewController.h */,
@@ -606,6 +611,7 @@
 				1CA7C7B719249DF300BEB997 /* NSDate+DateCalculate.m in Sources */,
 				1CCA0809190F75C300022062 /* RUScrollView.m in Sources */,
 				1C8965E819582F4F00A784A6 /* NetwokView.m in Sources */,
+				A8C3A81819950F100029FAB8 /* TestView.m in Sources */,
 				1CCA082D190F8C0800022062 /* RUBarButton.m in Sources */,
 				1CCC70B21959526700347CBE /* NewsTableView.m in Sources */,
 				1CCA080C190F763300022062 /* ViewControllerOrigin.m in Sources */,

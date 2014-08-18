@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C1A4C4419517E9C00505689 /* RUShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1A4C4319517E9C00505689 /* RUShareView.m */; };
+		1C3835A719A1D10200516862 /* UIImage+UIImageExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3835A619A1D10200516862 /* UIImage+UIImageExt.m */; };
 		1C7082981910D4BF0098FF44 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1C70829A1910D4BF0098FF44 /* Localizable.strings */; };
 		1C73A6DB196CE1930059AA5D /* DXLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C73A6D8196CE1930059AA5D /* DXLAlertView.m */; };
 		1C73A6DC196CE1930059AA5D /* DXLActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C73A6DA196CE1930059AA5D /* DXLActionSheetView.m */; };
@@ -79,6 +80,8 @@
 /* Begin PBXFileReference section */
 		1C1A4C4219517E9C00505689 /* RUShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RUShareView.h; sourceTree = "<group>"; };
 		1C1A4C4319517E9C00505689 /* RUShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RUShareView.m; sourceTree = "<group>"; };
+		1C3835A519A1D10200516862 /* UIImage+UIImageExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+UIImageExt.h"; sourceTree = "<group>"; };
+		1C3835A619A1D10200516862 /* UIImage+UIImageExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+UIImageExt.m"; sourceTree = "<group>"; };
 		1C7082991910D4BF0098FF44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1C70829B1910D4C40098FF44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1C70829C1910D4C40098FF44 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -237,6 +240,8 @@
 		1CA7C7B219249DF300BEB997 /* category */ = {
 			isa = PBXGroup;
 			children = (
+				1C3835A519A1D10200516862 /* UIImage+UIImageExt.h */,
+				1C3835A619A1D10200516862 /* UIImage+UIImageExt.m */,
 				1CA7C7B319249DF300BEB997 /* NSDate+DateCalculate.h */,
 				1CA7C7B419249DF300BEB997 /* NSDate+DateCalculate.m */,
 			);
@@ -595,6 +600,7 @@
 				1CCA07DF190F747500022062 /* main.m in Sources */,
 				1C96432B192D96A400D74164 /* TestTableViewFirstStyleCell.m in Sources */,
 				1CCA0810190F76AB00022062 /* UrlRequestManager.m in Sources */,
+				1C3835A719A1D10200516862 /* UIImage+UIImageExt.m in Sources */,
 				1C96432E192D96B500D74164 /* TestTableViewSecondStyleCell.m in Sources */,
 				1C9043E7195942D400D74BEA /* NewsModel.m in Sources */,
 				1CA7C7C119249ED100BEB997 /* UIViewExt.m in Sources */,

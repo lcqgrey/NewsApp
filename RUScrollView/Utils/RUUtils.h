@@ -29,4 +29,6 @@
 + (UIColor *)colorWithRGBHex:(UInt32)hex;
 + (UIColor *)colorWithHexString:(NSString *)stringToConvert;
 
++ (UIViewController*)viewInviewController:(UIView *)view; //获取视图所在控制器
+
 @end

@@ -55,15 +55,7 @@
 //    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleBlackOpaque;
     [self.navigationController.navigationBar setBackgroundImage:[self getBarImage] forBarMetrics:UIBarMetricsDefault];
     
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 40)];
-    label.center = self.view.center;
-    label.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin;
-    label.textAlignment = NSTextAlignmentCenter;
-    
-    if ([self respondsToSelector:@selector(getTi)]) {
-        label.text = [self getTi];
-    }
-    [self.view addSubview:label];
+
     
     //设置导航栏的标题文字属性
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:

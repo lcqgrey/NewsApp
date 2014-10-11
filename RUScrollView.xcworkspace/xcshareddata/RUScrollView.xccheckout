@@ -10,29 +10,29 @@
 	<string>RUScrollView</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>60189A65-D4BF-4DA6-A927-6FFBEE721216</key>
+		<key>473E3F9665ACA81020128586E5935FE2259DD6D1</key>
 		<string>https://github.com/lcqgrey/NewsApp</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>RUScrollView.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>60189A65-D4BF-4DA6-A927-6FFBEE721216</key>
+		<key>473E3F9665ACA81020128586E5935FE2259DD6D1</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/lcqgrey/NewsApp</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>60189A65-D4BF-4DA6-A927-6FFBEE721216</string>
+	<string>473E3F9665ACA81020128586E5935FE2259DD6D1</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>60189A65-D4BF-4DA6-A927-6FFBEE721216</string>
+			<string>473E3F9665ACA81020128586E5935FE2259DD6D1</string>
 			<key>IDESourceControlWCCName</key>
 			<string>NewsApp</string>
 		</dict>

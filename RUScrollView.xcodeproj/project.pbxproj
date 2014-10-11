@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1C1A4C4419517E9C00505689 /* RUShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1A4C4319517E9C00505689 /* RUShareView.m */; };
 		1C3835A719A1D10200516862 /* UIImage+UIImageExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3835A619A1D10200516862 /* UIImage+UIImageExt.m */; };
+		1C398F5A19E93A87005B479E /* TimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C398F5919E93A87005B479E /* TimerManager.m */; };
 		1C7082981910D4BF0098FF44 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1C70829A1910D4BF0098FF44 /* Localizable.strings */; };
 		1C73A6DB196CE1930059AA5D /* DXLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C73A6D8196CE1930059AA5D /* DXLAlertView.m */; };
 		1C73A6DC196CE1930059AA5D /* DXLActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C73A6DA196CE1930059AA5D /* DXLActionSheetView.m */; };
@@ -83,6 +84,8 @@
 		1C1A4C4319517E9C00505689 /* RUShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RUShareView.m; sourceTree = "<group>"; };
 		1C3835A519A1D10200516862 /* UIImage+UIImageExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+UIImageExt.h"; sourceTree = "<group>"; };
 		1C3835A619A1D10200516862 /* UIImage+UIImageExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+UIImageExt.m"; sourceTree = "<group>"; };
+		1C398F5819E93A87005B479E /* TimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerManager.h; sourceTree = "<group>"; };
+		1C398F5919E93A87005B479E /* TimerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerManager.m; sourceTree = "<group>"; };
 		1C7082991910D4BF0098FF44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1C70829B1910D4C40098FF44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1C70829C1910D4C40098FF44 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -428,6 +431,8 @@
 				1CCC70B3195952A300347CBE /* NewsTableView.xib */,
 				1C929E051987771700AF4C0A /* RUImageScanView.h */,
 				1C929E061987771700AF4C0A /* RUImageScanView.m */,
+				1C398F5819E93A87005B479E /* TimerManager.h */,
+				1C398F5919E93A87005B479E /* TimerManager.m */,
 			);
 			name = views;
 			path = RUScrollView/views;
@@ -607,6 +612,7 @@
 				1CCA0810190F76AB00022062 /* UrlRequestManager.m in Sources */,
 				1C3835A719A1D10200516862 /* UIImage+UIImageExt.m in Sources */,
 				1C96432E192D96B500D74164 /* TestTableViewSecondStyleCell.m in Sources */,
+				1C398F5A19E93A87005B479E /* TimerManager.m in Sources */,
 				1C9043E7195942D400D74BEA /* NewsModel.m in Sources */,
 				1CA7C7C119249ED100BEB997 /* UIViewExt.m in Sources */,
 				1C1A4C4419517E9C00505689 /* RUShareView.m in Sources */,

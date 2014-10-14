@@ -7,6 +7,7 @@
 //
 
 #import "RUTestViewController.h"
+#import "TimerManager.h"
 
 #define kMaxZoom 3.0f
 
@@ -74,9 +75,160 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    TimerManager *timerManager = [[TimerManager alloc] init];
+    __block TimerManager *tempTimerManager = timerManager;
+//    __weak typeof(self) weakself = self;
+    [timerManager addTimerCountDownWithTimeInterval:1 executeTimes:5 keyValue:@"tt" withOperationBlock:^(TimerOperationType type, NSString *key, NSInteger executeTimes) {
+//        [weakself timerWith:type andKey:key andExecuteTimes:executeTimes];
+        switch (type) {
+            case TimerOperationStart:
+                
+                break;
+            case TimerOperationExecute:
+//                if ([key isEqualToString:@"tt"] && executeTimes == 3) {
+//                    [tempTimerManager suspendTimerWithKey:@"tt"];
+//                }
+//                if ([key isEqualToString:@"ww"] && executeTimes == 5) {
+//                    [tempTimerManager resumeTimerWithKey:@"tt"];
+//                }
+//                if ([key isEqualToString:@"ww"] && executeTimes == 7) {
+//                    [tempTimerManager suspendTimerWithKey:@"ww"];
+//                }
+//                if ([key isEqualToString:@"yy"] && executeTimes == 9) {
+//                    [tempTimerManager cancelAllTimer];
+//                }
+                
+                break;
+            case TimerOperationResume:
+                
+                break;
+            case TimerOperationSuspend:
+                
+                break;
+            case TimerOperationCancel:
+                
+                break;
+                
+            default:
+                break;
+        }
+    }];
     
+    [timerManager addTimerCountDownWithTimeInterval:1 executeTimes:10 keyValue:@"ww" withOperationBlock:^(TimerOperationType type, NSString *key, NSInteger executeTimes) {
+//        [weakself timerWith:type andKey:key andExecuteTimes:executeTimes];
+        switch (type) {
+            case TimerOperationStart:
+                
+                break;
+            case TimerOperationExecute:
+                
+//                if ([key isEqualToString:@"tt"] && executeTimes == 3) {
+//                    [tempTimerManager suspendTimerWithKey:@"tt"];
+//                }
+//                if ([key isEqualToString:@"ww"] && executeTimes == 5) {
+//                    [tempTimerManager resumeTimerWithKey:@"tt"];
+//                }
+//                if ([key isEqualToString:@"ww"] && executeTimes == 7) {
+//                    [tempTimerManager suspendTimerWithKey:@"ww"];
+//                }
+//                if ([key isEqualToString:@"yy"] && executeTimes == 9) {
+//                    [tempTimerManager cancelAllTimer];
+//                }
+                
+                break;
+            case TimerOperationResume:
+                
+                break;
+            case TimerOperationSuspend:
+                
+                break;
+            case TimerOperationCancel:
+                
+                break;
+                
+            default:
+                break;
+        }
+    }];
+    
+    [timerManager addTimerCountDownWithTimeInterval:1 executeTimes:15 keyValue:@"yy" withOperationBlock:^(TimerOperationType type, NSString *key, NSInteger executeTimes) {
+        switch (type) {
+            case TimerOperationStart:
+                
+                break;
+            case TimerOperationExecute:
+                
+//                if ([key isEqualToString:@"tt"] && executeTimes == 3) {
+//                    [tempTimerManager suspendTimerWithKey:@"tt"];
+//                }
+//                if ([key isEqualToString:@"ww"] && executeTimes == 5) {
+//                    [tempTimerManager resumeTimerWithKey:@"tt"];
+//                }
+//                if ([key isEqualToString:@"ww"] && executeTimes == 7) {
+//                    [tempTimerManager suspendTimerWithKey:@"ww"];
+//                }
+//                if ([key isEqualToString:@"yy"] && executeTimes == 9) {
+//                    [tempTimerManager cancelAllTimer];
+//                }
+                
+                break;
+            case TimerOperationResume:
+                
+                break;
+            case TimerOperationSuspend:
+                
+                break;
+            case TimerOperationCancel:
+                
+                break;
+                
+            default:
+                break;
+        }
+//        [weakself timerWith:type andKey:key andExecuteTimes:executeTimes];
+    }];
 }
 
+- (void)timerWith:(TimerOperationType)type andKey:(NSString *)key andExecuteTimes:(NSInteger)executeTimes
+{
+    switch (type) {
+        case TimerOperationStart:
+            
+            break;
+        case TimerOperationExecute:
+            
+            if ([key isEqualToString:@"tt"] && executeTimes == 3) {
+                TimerManager *timerManager = [TimerManager instance];
+                [timerManager suspendTimerWithKey:@"tt"];
+            }
+            if ([key isEqualToString:@"ww"] && executeTimes == 5) {
+                TimerManager *timerManager = [TimerManager instance];
+                [timerManager resumeTimerWithKey:@"tt"];
+            }
+            if ([key isEqualToString:@"ww"] && executeTimes == 7) {
+                TimerManager *timerManager = [TimerManager instance];
+                [timerManager suspendTimerWithKey:@"ww"];
+            }
+            if ([key isEqualToString:@"yy"] && executeTimes == 9) {
+                TimerManager *timerManager = [TimerManager instance];
+                [timerManager cancelAllTimer];
+            }
+            
+            break;
+        case TimerOperationResume:
+            
+            break;
+        case TimerOperationSuspend:
+            
+            break;
+        case TimerOperationCancel:
+            
+            break;
+            
+        default:
+            break;
+    }
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -167,6 +319,11 @@
     if (block) {
         block();
     }
+}
+
+- (void)dealloc
+{
+    NSLog(@"%s",__FUNCTION__);
 }
 
 @end

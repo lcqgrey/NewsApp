@@ -35,13 +35,33 @@ static TimerManager *myInstance = nil;
     return myInstance;
 }
 
-- (instancetype)init
+- (id)init
 {
     self = [super init];
     if (self) {
         self.timerDic = [NSMutableDictionary dictionary];
     }
     return self;
+}
+
+- (void)addTimerCountDownWithTimeInterval:(NSTimeInterval)interval executeTimes:(NSUInteger)times delegate:(id)aDelegate keyValue:(NSString *)value
+{
+    [self addTimerCountDownWithTimeInterval:interval executeTimes:times delegate:aDelegate keyValue:value executedImmediately:YES];
+}
+
+- (void)addTimerCountDownWithTimeInterval:(NSTimeInterval)interval executeTimes:(NSUInteger)times delegate:(id)aDelegate keyValue:(NSString *)value executedImmediately:(BOOL)yesOrNo
+{
+    [self addTimerWithTimeInterval:interval executeTimes:times delegate:aDelegate keyValue:value withOperationBlock:nil executedImmediately:yesOrNo];
+}
+
+- (void)addTimerCountDownWithTimeInterval:(NSTimeInterval)interval executeTimes:(NSUInteger)times keyValue:(NSString *)value withOperationBlock:(TimerOperationBlock)block
+{
+    [self addTimerCountDownWithTimeInterval:interval executeTimes:times keyValue:value withOperationBlock:block executedImmediately:YES];
+}
+
+- (void)addTimerCountDownWithTimeInterval:(NSTimeInterval)interval executeTimes:(NSUInteger)times keyValue:(NSString *)value withOperationBlock:(TimerOperationBlock)block executedImmediately:(BOOL)yesOrNo
+{
+    [self addTimerWithTimeInterval:interval executeTimes:times delegate:nil keyValue:value withOperationBlock:block executedImmediately:yesOrNo];
 }
 
 - (void)addTimerWithTimeInterval:(NSTimeInterval)interval keyValue:(NSString *)value withOperationBlock:(TimerOperationBlock)block
@@ -51,7 +71,7 @@ static TimerManager *myInstance = nil;
 
 - (void)addTimerWithTimeInterval:(NSTimeInterval)interval keyValue:(NSString *)value withOperationBlock:(TimerOperationBlock)block executedImmediately:(BOOL)yesOrNo
 {
-   [self addTimerWithTimeInterval:interval delegate:nil keyValue:value withOperationBlock:block executedImmediately:yesOrNo];
+   [self addTimerWithTimeInterval:interval executeTimes:-1 delegate:nil keyValue:value withOperationBlock:block executedImmediately:yesOrNo];
 }
 
 - (void)addTimerWithTimeInterval:(NSTimeInterval)interval delegate:(id)aDelegate keyValue:(NSString *)value
@@ -61,15 +81,10 @@ static TimerManager *myInstance = nil;
 
 - (void)addTimerWithTimeInterval:(NSTimeInterval)interval delegate:(id)aDelegate keyValue:(NSString *)value executedImmediately:(BOOL)yesOrNo
 {
-    [self addTimerWithTimeInterval:interval delegate:aDelegate keyValue:value withOperationBlock:nil executedImmediately:yesOrNo];
+    [self addTimerWithTimeInterval:interval executeTimes:-1 delegate:aDelegate keyValue:value withOperationBlock:nil executedImmediately:yesOrNo];
 }
 
-- (void)addTimerWithTimeInterval:(NSTimeInterval)interval delegate:(id)aDelegate keyValue:(NSString *)value withOperationBlock:(TimerOperationBlock)block
-{
-    [self addTimerWithTimeInterval:interval delegate:aDelegate keyValue:value withOperationBlock:block executedImmediately:YES];
-}
-
-- (void)addTimerWithTimeInterval:(NSTimeInterval)interval delegate:(id)aDelegate keyValue:(NSString *)value withOperationBlock:(TimerOperationBlock)block executedImmediately:(BOOL)yesOrNo
+- (void)addTimerWithTimeInterval:(NSTimeInterval)interval executeTimes:(NSInteger)times delegate:(id)aDelegate keyValue:(NSString *)value withOperationBlock:(TimerOperationBlock)block  executedImmediately:(BOOL)yesOrNo
 {
     if ([self.timerDic objectForKey:value]) {
         return;
@@ -90,6 +105,7 @@ static TimerManager *myInstance = nil;
     [dic setObject:timer forKey:@"timer"];
     [dic setObject:@(0) forKey:@"executeTimes"];
     [dic setObject:@(TimerPrepare) forKey:@"timerStatus"];
+    [dic setObject:@(times) forKey:@"countDownTimes"];
     if (aDelegate) {
         __weak id<TimerManagerDelegate> delegate = aDelegate;
         [dic setObject:delegate forKey:@"delegate"];
@@ -113,7 +129,7 @@ static TimerManager *myInstance = nil;
     if (!timer) {
         return;
     }
-    TimerStatus status = [[[self.timerDic objectForKey:key] objectForKey:@"timerStatus"] integerValue];
+    TimerStatus status = [[dic objectForKey:@"timerStatus"] integerValue];
     if (status != TimerResume) {
         NSLog(@"resume timer %@",key);
         [dic setObject:@(TimerResume) forKey:@"timerStatus"];
@@ -126,12 +142,12 @@ static TimerManager *myInstance = nil;
 - (void)suspendTimerWithKey:(NSString *)key
 {
     NSMutableDictionary *dic = [self.timerDic objectForKey:key];
-    dispatch_source_t timer = [[self.timerDic objectForKey:key] objectForKey:@"timer"];
+    dispatch_source_t timer = [dic objectForKey:@"timer"];
     if (!timer) {
         return;
     }
-    TimerStatus status = [[[self.timerDic objectForKey:key] objectForKey:@"timerStatus"] integerValue];
-    if (status != TimerSuspend) {
+    TimerStatus status = [[dic objectForKey:@"timerStatus"] integerValue];
+    if (status != TimerSuspend && status != TimerPrepare) {
         NSLog(@"suspend timer %@",key);
         [dic setObject:@(TimerSuspend) forKey:@"timerStatus"];
         dispatch_suspend(timer);
@@ -187,10 +203,16 @@ static TimerManager *myInstance = nil;
     NSLog(@"execute timer %@",key);
     NSMutableDictionary *dic = [self.timerDic objectForKey:key];
     [dic setObject:@(TimerExecute) forKey:@"timerStatus"];
-    NSInteger number = [[[self.timerDic objectForKey:key] objectForKey:@"executeTimes"] integerValue];
+    NSInteger number = [[dic objectForKey:@"executeTimes"] integerValue];
+    NSInteger countDownTimes = [[dic objectForKey:@"countDownTimes"] integerValue];
     number++;
+    
     [[self.timerDic objectForKey:key] setObject:@(number) forKey:@"executeTimes"];
     [self setDelegateAndBlockWith:key andOperationType:TimerOperationExecute];
+    
+    if (number == countDownTimes) {
+        [self cancelTimerWithKey:key];
+    }
 }
 
 - (void)setDelegateAndBlockWith:(NSString *)key andOperationType:(TimerOperationType)type
@@ -198,7 +220,9 @@ static TimerManager *myInstance = nil;
     id delegate = [[self.timerDic objectForKey:key] objectForKey:@"delegate"];
     TimerOperationBlock block = [[self.timerDic objectForKey:key] objectForKey:@"block"];
     NSInteger number = [[[self.timerDic objectForKey:key] objectForKey:@"executeTimes"] integerValue];
-    NSLog(@"%@+++++%d",key,number);
+    if (type == TimerExecute) {
+        NSLog(@"timer: %@  has execute times: %d",key,number);
+    }
     if (delegate) {
         [delegate timerDidOperation:type withKey:key withExecuteTimes:number];
     }
@@ -209,18 +233,7 @@ static TimerManager *myInstance = nil;
 
 - (void)dealloc
 {
-    for (NSString *key in self.timerDic) {
-        id delegate = [[self.timerDic objectForKey:key] objectForKey:@"delegate"];
-        TimerOperationBlock block = [[self.timerDic objectForKey:key] objectForKey:@"block"];
-        if (delegate) {
-            delegate = nil;
-        }
-        if (block) {
-            block = nil;
-        }
-        [self resumeTimerWithKey:key];
-        [self cancelTimerWithKey:key];
-    }
+    [self cancelAllTimer];
 }
 
 

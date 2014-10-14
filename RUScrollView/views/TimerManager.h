@@ -28,8 +28,17 @@ typedef void(^TimerOperationBlock)(TimerOperationType type, NSString *key, NSInt
 
 + (TimerManager *)instance;
 
-- (instancetype)init;
+    //the timer count down
+- (void)addTimerCountDownWithTimeInterval:(NSTimeInterval)interval executeTimes:(NSUInteger)times delegate:(id)aDelegate keyValue:(NSString *)value; //execute immediately
 
+- (void)addTimerCountDownWithTimeInterval:(NSTimeInterval)interval executeTimes:(NSUInteger)times delegate:(id)aDelegate keyValue:(NSString *)value executedImmediately:(BOOL)yesOrNo;
+
+- (void)addTimerCountDownWithTimeInterval:(NSTimeInterval)interval executeTimes:(NSUInteger)times keyValue:(NSString *)value withOperationBlock:(TimerOperationBlock)block; //execute immediately
+
+- (void)addTimerCountDownWithTimeInterval:(NSTimeInterval)interval executeTimes:(NSUInteger)times keyValue:(NSString *)value withOperationBlock:(TimerOperationBlock)block executedImmediately:(BOOL)yesOrNo;
+
+
+    //
 - (void)addTimerWithTimeInterval:(NSTimeInterval)interval keyValue:(NSString *)value withOperationBlock:(TimerOperationBlock)block; //execute immediately
 
 - (void)addTimerWithTimeInterval:(NSTimeInterval)interval keyValue:(NSString *)value withOperationBlock:(TimerOperationBlock)block executedImmediately:(BOOL)yesOrNo;
@@ -38,9 +47,7 @@ typedef void(^TimerOperationBlock)(TimerOperationType type, NSString *key, NSInt
 
 - (void)addTimerWithTimeInterval:(NSTimeInterval)interval delegate:(id)aDelegate keyValue:(NSString *)value executedImmediately:(BOOL)yesOrNo;
 
-- (void)addTimerWithTimeInterval:(NSTimeInterval)interval delegate:(id)aDelegate keyValue:(NSString *)value withOperationBlock:(TimerOperationBlock)block; //execute immediately
 
-- (void)addTimerWithTimeInterval:(NSTimeInterval)interval delegate:(id)aDelegate keyValue:(NSString *)value withOperationBlock:(TimerOperationBlock)block executedImmediately:(BOOL)yesOrNo;
 
 - (void)resumeTimerWithKey:(NSString *)key;
 
